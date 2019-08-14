@@ -13,12 +13,16 @@ public class BlockPotatoBattery extends Block {
         this.setCreativeTab(CreativeTabs.REDSTONE);
         this.setRegistryName("potatobattery");
         this.setTranslationKey(PotatoUtilities.MODID + "." + this.getRegistryName());
-        this.setTranslationKey(PotatoUtilities.MODID + "." + this.getRegistryName());
     }
 
     @Override
     public boolean hasTileEntity(IBlockState state){
         return true;
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state){
+        return false;
     }
 
     public TileEntity createTileEntity(World world, IBlockState state){
