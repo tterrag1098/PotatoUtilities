@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "forge:bucketfilled",
+    "nbt": "{\"Amount\":1000,\"FluidName\":\"starchy_mixture\"}"
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:potato" },
+    { "item": "minecraft:potato" },
+    { "item": "minecraft:potato" },
+    { "item": "minecraft:potato" },
+  	{ "item": "minecraft:water_bucket" },
+    { "item": "minecraft:potato" },
+  	{ "item": "minecraft:sugar" },
+  	{ "item": "minecraft:sugar" },
+  	{ "item": "minecraft:sugar" }
+  ]
+}
