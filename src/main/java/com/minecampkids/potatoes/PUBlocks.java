@@ -2,10 +2,13 @@ package com.minecampkids.potatoes;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fluids.BlockFluidFinite;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 @EventBusSubscriber
@@ -29,5 +32,7 @@ public class PUBlocks {
                 .setHardness(1.25F)
                 .setResistance(2.5F)
                 .setRegistryName("plastic"));
+        event.getRegistry().register(new BlockPotatoBattery());
+        GameRegistry.registerTileEntity(TileEntityPotatoBattery.class, PotatoUtilities.MODID + ":tileentitypotatobattery");
     }
 }

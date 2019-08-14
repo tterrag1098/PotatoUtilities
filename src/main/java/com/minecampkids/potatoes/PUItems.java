@@ -2,6 +2,7 @@ package com.minecampkids.potatoes;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -19,5 +20,6 @@ public class PUItems {
                 .setCreativeTab(CreativeTabs.MISC)
                 .setTranslationKey(PotatoUtilities.MODID + ".plastic")
                 .setRegistryName("plastic"));
+        event.getRegistry().register(new ItemBlock(new BlockPotatoBattery()).setRegistryName(PotatoUtilities.MODID, "potatobattery"));
     }
 }
