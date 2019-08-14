@@ -7,6 +7,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = PotatoUtilities.MODID, name = PotatoUtilities.NAME, version = PotatoUtilities.VERSION)
 public class PotatoUtilities {
@@ -17,8 +20,12 @@ public class PotatoUtilities {
 
     private static Logger logger;
     
+    public static final SimpleNetworkWrapper network = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
+    
     static {
         FluidRegistry.enableUniversalBucket();
+        
+        network.registerMessage(PacketBatteryState.Handler.class, PacketBatteryState.class, 0, Side.CLIENT);
     }
     
     @EventHandler

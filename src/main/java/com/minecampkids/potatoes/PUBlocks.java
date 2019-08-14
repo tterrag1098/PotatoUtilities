@@ -2,7 +2,6 @@ package com.minecampkids.potatoes;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fluids.BlockFluidFinite;
@@ -18,7 +17,8 @@ public class PUBlocks {
     public static final BlockFluidFinite LIQUID_PLASTIC = null;
     
     public static final Block PLASTIC = null;
-    
+    public static final Block POTATO_BATTERY = null;
+
     @SubscribeEvent
     public static void registerBlocks(Register<Block> event) {
         event.getRegistry().register(new BlockFluidPlastic(PUFluids.liquidPlastic())
@@ -32,7 +32,11 @@ public class PUBlocks {
                 .setHardness(1.25F)
                 .setResistance(2.5F)
                 .setRegistryName("plastic"));
-        event.getRegistry().register(new BlockPotatoBattery());
-        GameRegistry.registerTileEntity(TileEntityPotatoBattery.class, PotatoUtilities.MODID + ":tileentitypotatobattery");
+        
+        event.getRegistry().register(new BlockPotatoBattery()
+                .setCreativeTab(CreativeTabs.REDSTONE)
+                .setTranslationKey(PotatoUtilities.MODID + "." + "potato_battery")
+                .setRegistryName("potato_battery"));
+        GameRegistry.registerTileEntity(TileEntityPotatoBattery.class, new ResourceLocation(PotatoUtilities.MODID, "potato_battery"));
     }
 }

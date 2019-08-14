@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 public class PUItems {
     
     public static final Item PLASTIC = null;
-    public static final Item POTATO_BATTERY = new ItemBlock(new BlockPotatoBattery()).setRegistryName(PotatoUtilities.MODID, "potatobattery");
+    public static final Item POTATO_BATTERY = null;
     
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -21,6 +21,8 @@ public class PUItems {
                 .setCreativeTab(CreativeTabs.MISC)
                 .setTranslationKey(PotatoUtilities.MODID + ".plastic")
                 .setRegistryName("plastic"));
-        event.getRegistry().register(POTATO_BATTERY);
+        
+        event.getRegistry().register(new ItemBlock(PUBlocks.POTATO_BATTERY)
+                .setRegistryName(PUBlocks.POTATO_BATTERY.getRegistryName()));
     }
 }
