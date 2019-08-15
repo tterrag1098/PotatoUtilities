@@ -10,7 +10,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockPotatoBattery extends Block {
@@ -37,7 +39,12 @@ public class BlockPotatoBattery extends Block {
     public TileEntity createTileEntity(World world, IBlockState state){
         return new TileEntityPotatoBattery();
     }
-    
+
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos){
+        return new AxisAlignedBB(0.8, 0.0, 0.8, 0.2, 1.0, 0.2);
+    }
+
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack held = playerIn.getHeldItem(hand);
