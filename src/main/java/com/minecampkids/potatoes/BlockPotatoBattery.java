@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
@@ -32,6 +33,8 @@ public class BlockPotatoBattery extends Block {
     
     public BlockPotatoBattery(){
         super(Material.CLAY);
+        setSoundType(SoundType.GLASS);
+        setHarvestLevel("pickaxe", 0);
     }
 
     @Override
@@ -45,10 +48,15 @@ public class BlockPotatoBattery extends Block {
     }
     
     @Override
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
+    public boolean isFullCube(IBlockState state) {
+        return false;
     }
-
+    
+    @Override
+    public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer) {
+        return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.TRANSLUCENT;
+    }
+    
     @Override
     public TileEntity createTileEntity(World world, IBlockState state){
         return new TileEntityPotatoBattery();

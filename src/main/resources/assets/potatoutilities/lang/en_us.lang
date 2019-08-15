@@ -1,8 +1,9 @@
+item.potatoutilities.starchy_mixture_bucket.name=Starchy Mixture Bucket
 item.potatoutilities.plastic.name=Plastic
+item.potatoutilities.plastic.tooltip=Place some Liquid Plastic and let it dry!
 item.potatoutilities.pleather.name=Pleather
 
 tile.potatoutilities.potato_battery.name=Potato Battery
 tile.potatoutilities.potato_battery.tooltip=Power Remaining: %d FE
 
 fluid.liquid_plastic=Liquid Plastic
-fluid.starchy_mixture=Starchy Mixture

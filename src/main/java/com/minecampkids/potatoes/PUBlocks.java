@@ -35,6 +35,7 @@ public class PUBlocks {
         event.getRegistry().register(new BlockPotatoBattery()
                 .setCreativeTab(CreativeTabs.REDSTONE)
                 .setTranslationKey(PotatoUtilities.MODID + "." + "potato_battery")
+                .setHardness(1.0F)
                 .setRegistryName("potato_battery"));
         GameRegistry.registerTileEntity(TileEntityPotatoBattery.class, new ResourceLocation(PotatoUtilities.MODID, "potato_battery"));
     }

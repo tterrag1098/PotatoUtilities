@@ -1,5 +1,20 @@
 {
-  "variants": {
-    "normal":     {"model": "potatoutilities:potato_battery" }
-  }
+    "forge_marker": 1,
+    "defaults": {
+        "model": "forge:multi-layer",
+        "custom": {
+            "base": "potatoutilities:potato_battery#inside",
+            "Solid": "potatoutilities:potato_battery#inside",
+            "Translucent": "potatoutilities:potato_battery#bottle"
+        }
+    },
+    "variants": {
+        "normal": [{}],
+        "inside": [{
+            "model": "potatoutilities:potato_battery_inside"
+        }],
+        "bottle": [{
+            "model": "potatoutilities:potato_battery_outside"
+        }]
+    }
 }

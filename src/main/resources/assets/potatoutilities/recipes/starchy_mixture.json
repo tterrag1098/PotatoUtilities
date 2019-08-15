@@ -1,7 +1,6 @@
 {
   "result": {
-    "item": "forge:bucketfilled",
-    "nbt": "{\"Amount\":1000,\"FluidName\":\"starchy_mixture\"}"
+    "item": "potatoutilities:starchy_mixture_bucket"
   },
   "type": "potatoutilities:bucket_consuming_shapeless",
   "ingredients": [

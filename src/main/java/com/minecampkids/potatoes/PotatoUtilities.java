@@ -3,12 +3,15 @@ package com.minecampkids.potatoes;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -38,6 +41,11 @@ public class PotatoUtilities {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         PUFluids.liquidPlastic().setBlock(PUBlocks.LIQUID_PLASTIC);
+        
+        GameRegistry.addSmelting(
+                PUItems.STARCHY_MIXTURE_BUCKET,
+                FluidUtil.getFilledBucket(new FluidStack(PUFluids.liquidPlastic(), 1000)),
+                0.1F);
         
         OreDictionary.registerOre("leather", PUItems.PLEATHER);
     }

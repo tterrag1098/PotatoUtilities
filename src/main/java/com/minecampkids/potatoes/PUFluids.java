@@ -6,12 +6,9 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class PUFluids {
         
-    private static Fluid starchyMixture, liquidPlastic;
+    private static Fluid liquidPlastic;
     
-    public static void registerFluids() {        
-        starchyMixture = registerFluid("starchy_mixture");
-        FluidRegistry.addBucketForFluid(starchyMixture);
-        
+    public static void registerFluids() {                
         liquidPlastic = registerFluid("liquid_plastic");
         FluidRegistry.addBucketForFluid(liquidPlastic);
     }
@@ -22,10 +19,6 @@ public class PUFluids {
                         new ResourceLocation(PotatoUtilities.MODID, "blocks/" + name + "_still"), 
                         new ResourceLocation(PotatoUtilities.MODID, "blocks/" + name + "_flow")));
         return FluidRegistry.getFluid(name);
-    }
-    
-    public static Fluid starchyMixture() {
-        return starchyMixture;
     }
 
     public static Fluid liquidPlastic() {
