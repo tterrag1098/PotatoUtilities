@@ -1,0 +1,5 @@
+{
+	"recipes": {
+		"bucket_consuming_shapeless": "com.minecampkids.potatoes.ShapelessBucketConsumingRecipe$Factory"
+	}
+}

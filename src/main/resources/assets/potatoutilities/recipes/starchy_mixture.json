@@ -3,7 +3,7 @@
     "item": "forge:bucketfilled",
     "nbt": "{\"Amount\":1000,\"FluidName\":\"starchy_mixture\"}"
   },
-  "type": "minecraft:crafting_shapeless",
+  "type": "potatoutilities:bucket_consuming_shapeless",
   "ingredients": [
     { "item": "minecraft:potato" },
     { "item": "minecraft:potato" },
