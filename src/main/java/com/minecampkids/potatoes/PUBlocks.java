@@ -29,8 +29,7 @@ public class PUBlocks {
         event.getRegistry().register(new BlockPlastic()
                 .setCreativeTab(CreativeTabs.MISC)
                 .setTranslationKey(PotatoUtilities.MODID + "." + "plastic")
-                .setHardness(1.25F)
-                .setResistance(2.5F)
+                .setHardness(0.5F)
                 .setRegistryName("plastic"));
         
         event.getRegistry().register(new BlockPotatoBattery()
