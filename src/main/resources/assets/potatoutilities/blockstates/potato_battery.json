@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "normal":     {"model": "potatoutilities:potato_battery" }
+  }
+}

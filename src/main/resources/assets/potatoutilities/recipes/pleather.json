@@ -1,0 +1,24 @@
+{
+  "result": {
+    "item": "potatoutilities:pleather"
+  },
+  "pattern": [
+    "XOX",
+    "XXX",
+    "XWX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "potatoutilities:plastic"
+    },
+    "O": {
+      "item": "minecraft:dye",
+      "data": 14
+    },
+    "W": {
+   	  "item": "minecraft:wool",
+   	  "data": 0
+   	}
+  }
+}

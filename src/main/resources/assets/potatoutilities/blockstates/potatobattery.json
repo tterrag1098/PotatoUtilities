@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "normal":     {"model": "potatoutilities:potatobattery" },
-    "inventory":  {"model": "potatoutilities:potatobattery" }
-  }
-}

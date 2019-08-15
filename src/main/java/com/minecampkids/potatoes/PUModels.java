@@ -14,7 +14,8 @@ public class PUModels {
     @SubscribeEvent
     public static void onModelRegistry(ModelRegistryEvent event) {
         ModelLoader.setCustomModelResourceLocation(PUItems.PLASTIC, 0, new ModelResourceLocation(PUItems.PLASTIC.getRegistryName(), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(PUItems.POTATO_BATTERY, 0, new ModelResourceLocation(PUItems.POTATO_BATTERY.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(PUItems.PLEATHER, 0, new ModelResourceLocation(PUItems.PLEATHER.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(PUItems.POTATO_BATTERY, 0, new ModelResourceLocation(PUItems.POTATO_BATTERY.getRegistryName(), "normal"));
         ModelLoader.setCustomStateMapper(PUBlocks.LIQUID_PLASTIC, new StateMap.Builder().ignore(BlockFluidFinite.LEVEL).build());
     }
     

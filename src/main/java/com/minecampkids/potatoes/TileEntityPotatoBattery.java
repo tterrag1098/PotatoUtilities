@@ -57,18 +57,15 @@ public class TileEntityPotatoBattery extends TileEntity implements ITickable {
         
         final int maxPowerToGive = Math.min(powerRemaining, ENERGY_PER_TICK);
         int powerToGive = maxPowerToGive;
-        for (EnumFacing dir : EnumFacing.VALUES) {
-            TileEntity te = getWorld().getTileEntity(getPos().offset(dir));
-            if (te != null) {
-                IEnergyStorage energy = te.getCapability(CapabilityEnergy.ENERGY, dir.getOpposite());
-                if (energy != null) {
-                    powerToGive -= energy.receiveEnergy(powerToGive, false);
-                    if (powerToGive <= 0) {
-                        break;
-                    }
-                }
+
+        TileEntity te = getWorld().getTileEntity(getPos().offset(EnumFacing.UP));
+        if (te != null) {
+            IEnergyStorage energy = te.getCapability(CapabilityEnergy.ENERGY, EnumFacing.DOWN);
+            if (energy != null) {
+                powerToGive -= energy.receiveEnergy(powerToGive, false);
             }
         }
+        
         if (powerToGive != maxPowerToGive) {
             powerRemaining -= maxPowerToGive - powerToGive;
             getWorld().markChunkDirty(getPos(), this);
@@ -97,12 +94,12 @@ public class TileEntityPotatoBattery extends TileEntity implements ITickable {
     
     @Override
     public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-        return capability == CapabilityEnergy.ENERGY || super.hasCapability(capability, facing);
+        return (facing == EnumFacing.UP && capability == CapabilityEnergy.ENERGY) || super.hasCapability(capability, facing);
     }
     
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-        if (capability == CapabilityEnergy.ENERGY) {
+        if (capability == CapabilityEnergy.ENERGY && facing == EnumFacing.UP) {
             return CapabilityEnergy.ENERGY.cast(energy);
         }
         return super.getCapability(capability, facing);

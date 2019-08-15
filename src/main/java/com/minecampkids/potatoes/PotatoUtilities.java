@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid = PotatoUtilities.MODID, name = PotatoUtilities.NAME, version = PotatoUtilities.VERSION)
 public class PotatoUtilities {
@@ -37,5 +38,7 @@ public class PotatoUtilities {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         PUFluids.liquidPlastic().setBlock(PUBlocks.LIQUID_PLASTIC);
+        
+        OreDictionary.registerOre("leather", PUItems.PLEATHER);
     }
 }
