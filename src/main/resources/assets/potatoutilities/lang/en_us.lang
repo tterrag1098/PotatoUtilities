@@ -1,5 +1,8 @@
 item.potatoutilities.plastic.name=Plastic
-tile.potatoutilities.potato_battery.name=Potato Battery
 item.potatoutilities.pleather.name=Pleather
+
+tile.potatoutilities.potato_battery.name=Potato Battery
+tile.potatoutilities.potato_battery.tooltip=Power Remaining: %d FE
+
 fluid.liquid_plastic=Liquid Plastic
 fluid.starchy_mixture=Starchy Mixture

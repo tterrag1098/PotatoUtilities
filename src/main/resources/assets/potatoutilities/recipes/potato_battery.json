@@ -1,0 +1,28 @@
+{
+  "result": {
+    "item": "potatoutilities:potato_battery"
+  },
+  "pattern": [
+    "IPG",
+    "XBX",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:potato"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+   	  "item": "potatoutilities:plastic"
+   	},
+   	"G": {
+   	  "item": "minecraft:gold_ingot"
+   	},
+   	"B": {
+   	  "item": "minecraft:glass_bottle"
+   	}
+  }
+}

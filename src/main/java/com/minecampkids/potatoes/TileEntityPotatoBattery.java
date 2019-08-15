@@ -20,7 +20,7 @@ public class TileEntityPotatoBattery extends TileEntity implements ITickable {
     
     // ENERGY_PER_TICK FE per tick * 20 ticks per second * 60 seconds per minute * MINUTES_OF_POWER
     // = MINUTES_OF_POWER at full output (at ENERGY_PER_TICK)
-    private static final int MAX_POWER = ENERGY_PER_TICK * 20 * 60 * MINUTES_OF_POWER;
+    static final int MAX_POWER = ENERGY_PER_TICK * 20 * 60 * MINUTES_OF_POWER;
     
     private int powerRemaining = MAX_POWER;
     
@@ -51,7 +51,7 @@ public class TileEntityPotatoBattery extends TileEntity implements ITickable {
     public void update() {
         if (getWorld().isRemote) return;
         if (isEmpty()) {
-            updateClient(true);
+            updateClient();
             return;
         }
         
@@ -70,6 +70,7 @@ public class TileEntityPotatoBattery extends TileEntity implements ITickable {
             powerRemaining -= maxPowerToGive - powerToGive;
             getWorld().markChunkDirty(getPos(), this);
         }
+        System.out.println(powerRemaining);
     }
     
     public boolean isEmpty() {
@@ -78,18 +79,30 @@ public class TileEntityPotatoBattery extends TileEntity implements ITickable {
     
     public void refuel() {
         this.powerRemaining = MAX_POWER;
-        updateClient(false);
+        updateClient();
     }
     
-    private void updateClient(boolean empty) {
+    private void updateClient() {
         BlockPos pos = getPos();
-        PotatoUtilities.network.sendToAllTracking(new PacketBatteryState(getPos(), empty), 
+        PotatoUtilities.network.sendToAllTracking(new PacketBatteryState(getPos(), isEmpty()), 
                 new TargetPoint(getWorld().provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 1));
     }
     
     @SideOnly(Side.CLIENT)
     public void empty() {
         this.powerRemaining = 0;
+    }
+    
+    void setPower(int power) {
+        int oldPower = this.powerRemaining;
+        this.powerRemaining = power;
+        if (oldPower != power && (oldPower == 0 || power == 0)) {
+            updateClient();
+        }
+    }
+     
+    public int getPowerRemaining() {
+        return powerRemaining;
     }
     
     @Override
